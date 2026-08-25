@@ -34,9 +34,16 @@ def Permutacoes(a, usado, n, i, sol,alice,bob,total):
 
     return -1
 
-
-a = [1, 2, 2, 3]
-usado = [False] * len(a)
-sol = [0] * len(a)
-coisa= Permutacoes(a, usado, len(a), 0, sol,0,0,sum(a))
-print(coisa)
+tamanho=int(input())
+array=input().split()
+for i in range(tamanho):
+    array[i]=int(array[i])
+usado = [False] * tamanho
+sol = [0] * tamanho
+coisa= Permutacoes(array, usado, len(array), 0, sol,0,0,sum(array))
+if coisa!=-1:
+    for i in range(tamanho):
+        coisa[i]=str(coisa[i])
+    print(" ".join(coisa))
+else:
+    print(-1)
