@@ -10,14 +10,11 @@ for i in range(len(numeros_arr)):
 for i in range(len(numeros_arr[0])):
     count1=0
     potencia=len(numeros_arr[0])-i-1
-    print("Potencia" +str(potencia))
     for j in range(numeros):
         indice=len(numeros_arr[j])-potencia-1
         if indice>=0 and numeros_arr[j][indice]=='1':
             count1+=1
             numeros_arr[j][indice]='0'
-            print("Cheguei aqui")
-    print(count1)
     for k in range(count1):
         indice=len(numeros_arr[k])-potencia-1
         if indice>=0:

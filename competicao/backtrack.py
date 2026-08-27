@@ -6,6 +6,7 @@ def back(M,N,i,j,poti,potj,numi,numj):
     sol4=-1
     sol5=-1
     sol6=-1
+    sol7=-1
     if i<0 and j<0:
         if numj!=0 and (numi%numj==0): #checar se N divide M
             return numi
@@ -15,26 +16,38 @@ def back(M,N,i,j,poti,potj,numi,numj):
         numi2=numi+poti
         next_poti=poti*2
         sol1=back(M,N,i-1,j,next_poti,potj,numi,numj) #testar para * ==0
+        if sol1!= -1:
+            return sol1
         sol2=back(M,N,i-1,j,next_poti,potj,numi2,numj) #testar para * == 1
+        if sol2!=-1:
+            return sol2
     if j>=0 and N[j]=="*":
         numj2=numj+potj
         next_potj=potj*2
         sol3=back(M,N,i,j-1,poti,next_potj,numi,numj)  #testar para * ==0
+        if sol3!=-1:
+            return sol3
         sol4=back(M,N,i,j-1,poti,next_potj,numi,numj2) #testar para * == 1
+        if sol4 !=-1:
+            return sol4
+    if i>=0 and M[i]!="*" and j>=0 and N[j]!="*":
+        da_vez=int(M[i])
+        numi2=numi+da_vez*poti
+        next_poti=poti*2
+        da_vez_n=int(N[j])
+        numj2=numj+potj*da_vez_n
+        next_potj=potj*2
+        return back(M,N,i-1,j-1,next_poti,next_potj,numi2,numj2)
     if i>=0 and M[i]!="*": #nao preciso abrir nova recursao, não é *
         da_vez=int(M[i])
         numi2=numi+da_vez*poti
         next_poti=poti*2
-        sol5=back(M,N,i-1,j,next_poti,potj,numi2,numj)
+        return back(M,N,i-1,j,next_poti,potj,numi2,numj)
     if j>=0 and N[j]!="*": #nao preciso abrir nova recursao, não é * 
         da_vez_n=int(N[j])
         numj2=numj+potj*da_vez_n
         next_potj=potj*2
-        sol6=back(M,N,i,j-1,poti,next_potj,numi,numj2)
-    lista=[sol1,sol2,sol3,sol4,sol5,sol6] #juntar todas as solucoes das chamadas recursivas 
-    for k in lista: #retornar a unica valida 
-        if k!=-1:
-            return k
+        return back(M,N,i,j-1,poti,next_potj,numi,numj2)
     return -1 #retorno default invalido se nada rodou
 
 
