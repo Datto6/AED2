@@ -4,6 +4,7 @@ def peso_subc(A,n,i,P,t):
         if t==0:
             print("Grupo A: "+ " ".join(str(j) for j in A) )
             print("Grupo B: "+ " ".join(str(j) for j in P if j not in A))
+            print("") #só formatação zinha
         return t==0
     if P[i]<=t: #checo se posso levar ele, essa é a poda
         A.append(P[i])
