@@ -23,7 +23,7 @@ def LISAUX(A):
         if r[0]<=r1[0]:
             if r1[0]>r[0] or r[1]>r1[1]: #se tamanho é maior, vai direto, mas se tamanho for igual, tem que olhar soma
                 r=r1
-    print(r)
+    return r
 
 A = [1,2,3,0]
 LISAUX(A)
@@ -45,7 +45,7 @@ testes = [
 
 for A, esperado in testes:
     M = [None] * len(A)
-    resultado = LiSSUM(M, A, len(A)-1)
+    resultado = LISAUX(A)
     print(A)
     print("Resultado:", resultado)
     print("Esperado: ", esperado)
