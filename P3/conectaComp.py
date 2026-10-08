@@ -44,3 +44,4 @@ def grafoBuilder(V,E):
         insert_after(G[elem_A],elem_B)
         insert_after(G[elem_B],elem_A)
     return G
+#Contar quantos de cada componente conexo e juntar 
