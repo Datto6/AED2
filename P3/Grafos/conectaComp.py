@@ -1,18 +1,5 @@
 from collections import deque
-class Vertice:
-    def __init__(self,index):
-        self.index=index
-        self.next=None
-# 3. Insert after a specific node
-
-def insert_after(prev_node, data):
-    if not prev_node:
-        print("The given previous node must exist.")
-        return
-    
-    new_node = Vertice(data)
-    new_node.next = prev_node.next  # Point new node to the next node
-    prev_node.next = new_node       # Point previous node to the new node
+from basico import grafoBuilder, Vertice
 def componentes(G):
     n=len(G)
     comp=[0]*n
@@ -32,16 +19,20 @@ def componentes(G):
                         queue.append(v)
                     v=v.next
     return (c,comp)
-
-def grafoBuilder(V,E):
-    n=len(V)
-    G=[None]*n
-    for i in range(n):
-        G[i]=Vertice(i)
-    for i in E:
-        elem_A=i[1]
-        elem_B=i[0]
-        insert_after(G[elem_A],elem_B)
-        insert_after(G[elem_B],elem_A)
-    return G
 #Contar quantos de cada componente conexo e juntar 
+
+def desconexos(saida):
+    total=saida[0]
+    hist={}
+    componentes=saida[1]
+    atual=componentes[0]
+    hist[atual]=0
+    for i in range(len(componentes)): #Contar quantos de cada componente conexo tem 
+        if atual!=componentes[i]:
+            hist[atual]=0
+        else:
+            hist[atual]+=1
+    pares_desconexos=0
+    for componente,contagem in hist.values():
+        pares_desconexos+=contagem*(total-contagem)
+    return (pares_desconexos,len(hist.keys()))
