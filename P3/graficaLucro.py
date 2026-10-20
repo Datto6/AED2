@@ -1,5 +1,9 @@
 import heapq
 def greedyLucro(A):
+    #Ordenar de forma decrescente por tempo de prazo
+    #A cada t, escolher o pedido que tem maior lucro.
+    # Começar com o maior t, de que modo que todos os considerados sempre estão dentro do prazo
+    #A cada decrementada de t, adicionar os pedidos do t atual para o maxHeap
     A.sort(key=lambda x: x[1],reverse=True)
     t=A[0][1]
     heap=[]

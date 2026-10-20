@@ -1,4 +1,7 @@
 def greedyInterval(A):
+    # Ordenar de forma crescente por tempo de final 
+    #Caso não perfure, adicionar o tempo de final do atual
+    #Isso minimiza porque é mesma cardinalidade que quantidade de conjuntos disjuntos
     A.sort(key=lambda x: x[1])
     print(A)
     pontos=[]

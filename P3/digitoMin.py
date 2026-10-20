@@ -1,5 +1,7 @@
 from collections import deque
 def digitoMin(D,k):
+    #Cria pilha monotonica de dígitos, cada retirada da pilha decrementando k
+    #k retiradas, n-k dígitos restantes, minimiza resultado
     pilha=[]
     for i in range(len(D)):
         if len(pilha)==0:

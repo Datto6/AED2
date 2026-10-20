@@ -6,6 +6,9 @@ class Node:
         self.left=None
         self.middle=None
 def mergeList(A):
+    #Escolhe os 3 menores nós e junta eles, resolvendo o problema com n-2
+    #Auxiliar depois mostra o resultado 
+    #Resultado dá código de prefixo ternário ótimo
     Q=[]
     n=len(A)
     total=0

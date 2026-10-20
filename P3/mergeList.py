@@ -1,5 +1,7 @@
 import heapq
 def mergeList(A):
+    #Análogo ao algoritmo de código de huffman, junto duas menores listas, e resolvo problema com n-1 listas
+    #No final essa sequência de junções gera menor custo
     Q=[]
     n=len(A)
     ordem=[]

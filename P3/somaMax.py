@@ -1,4 +1,8 @@
 def greedyMax(A,B):
+    # Soma máxima 
+    # Ordena A e B de forma crescente
+    # Somar de forma ordenada com min(A)*min(B) +....+max(A)*max(B) maximiza a soma
+    #Ordeno os dois mas faço permutação só em relacao a B gravando o índice antigo de A
     n=len(A)
     A_order=[]
     for i in range(n):
@@ -13,7 +17,12 @@ def greedyMax(A,B):
         index_saida=A_order[i][1]
         saida[index_saida]=(B_order[i][1])
     return saida
+
 def greedyMin(A,B):
+    # Soma mínima
+    # Ordena A e B de forma crescente
+    # Somar de forma contrária, min(A)*max(B) gera soma mínima
+    #Ordeno os dois mas faço permutação só em relacao a B gravando o índice antigo de A
     n=len(A)
     A_order=[]
     for i in range(n):

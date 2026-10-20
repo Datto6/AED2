@@ -1,4 +1,8 @@
 def greedyInterval(A,L):
+    # Ordenar por intervalo de início de forma crescente
+    # Pegar o maior final dos que começam com c, começando com 0 
+    # O c[i+1] vira o fmax de c[i]
+    # Caso c ultrapassar L, conseguimos cobrir [0,L]
     A.sort(key=lambda x: x[0])
     intervalos=[]
     n=len(A)

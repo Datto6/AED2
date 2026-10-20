@@ -1,4 +1,8 @@
 def greedyBoat(A,C):
+    #Ordenar de forma crescente
+    #Sempre tentar emparelhar o maior com o menor, (último com o primeiro)
+    #Se não conseguir, o maior vai sozinho e andamos com o ponteiro da direita
+    #Se conseguir, andar com ambos
     A.sort()
     boats=[]
     while len(A)>0:
