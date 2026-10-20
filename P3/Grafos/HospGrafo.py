@@ -2,6 +2,8 @@ from collections import deque
 from basico import grafoBuilder, Vertice
 
 def Hospitais(G,S):
+    #Hospital mais perto de cada vértice, dado S hospitais
+    #Comeco um BFS com os Hospitais já na fila, dessa forma vou seguindo com distancia crescente de cada hospital simultaneamente
     n=len(G)
     dist=[-1]*n
     queue=deque()

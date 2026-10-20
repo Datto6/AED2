@@ -7,7 +7,9 @@ def procura_vizinho(v,alvo):
             return True
         procurador=procurador.next
 
-def CaminhosUnicos(G,E):
+def triangulo(G,E):
+    #Para toda aresta, checar vizinhos de u e v, para ver se tem um em comum
+    #Se tiver, é triangulo(ciclo de comprimento 3)
     resultado = set() #evita repeticoes
     for u,v in E:
         vizinho=G[u].next
@@ -21,4 +23,4 @@ def CaminhosUnicos(G,E):
 V=[0,1,2,3,4,5,6,7,8]
 E=[[0, 1], [0, 2], [1, 2], [1, 3], [1, 4], [2, 4],[2,5],[3,4],[4,6],[5,6],[7,8]]
 G=grafoBuilder(V,E)
-print(CaminhosUnicos(G,E))
+print(triangulo(G,E))

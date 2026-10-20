@@ -1,6 +1,7 @@
 from collections import deque
 from basico import Vertice, grafoBuilder
 def CaminhosUnicos(G,s):
+    #Dado um grafo G e um vertice s, calcular quantos caminhos mínimos únicos para cada v a partir de s
     n=len(G)
     dist=[-1]*n
     caminhos=[-1]*n
@@ -16,7 +17,7 @@ def CaminhosUnicos(G,s):
                 dist[v.index]=dist[u.index]+1
                 caminhos[v.index]=caminhos[u.index] #Adiciona possíveis caminhos de u para v agora
                 queue.append(G[v.index])
-            elif dist[v.index]==dist[u.index]+1: #Isso mantém que é um caminho único
+            elif dist[v.index]==dist[u.index]+1: #Isso mantém que é um caminho único e mínimo
                 caminhos[v.index]+=caminhos[u.index]
             v=v.next
     for i in range(len(caminhos)):

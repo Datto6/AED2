@@ -1,10 +1,11 @@
 from collections import deque
 from basico import grafoBuilder, Vertice
 def componentes(G):
+    #Conta quantos componentes conexos e de qual cada um pertence
     n=len(G)
     comp=[0]*n
-    c=0 #Conta quantos componentes conexos e de qual cada um pertence
-    for i in range(len(G)):
+    c=0 
+    for i in range(len(G)): #Fazer BFS para atingir todos
         if comp[i]==0:
             c=c+1
             comp[i]=c
@@ -13,16 +14,15 @@ def componentes(G):
             while len(queue)!=0:
                 u=queue.popleft()
                 v=u.next
-                while v!=None:
+                while v!=None: #Percorrer vizinhos de u
                     if comp[v.index]==0:
                         comp[v.index]=c
-                        queue.append(G[v.index])
+                        queue.append(G[v.index]) #Colocar v na fila somente se ainda nao foi descoberto
                     v=v.next
     return (c,comp)
 
 #Contar quantos de cada componente conexo e juntar 
 def desconexos(saida,G):
-    total=saida[0]
     hist={}
     componentes=saida[1]
     n=len(G)
@@ -32,6 +32,7 @@ def desconexos(saida,G):
             hist[atual]=1
         else:
             hist[atual]+=1
+    
     pares_desconexos=0
     print(hist)
     for componente,contagem in hist.items():

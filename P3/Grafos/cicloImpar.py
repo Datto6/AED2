@@ -2,6 +2,7 @@ from collections import deque
 from basico import grafoBuilder, Vertice
 
 def bipartido(G):
+    #Checar se é bipartido
     n=len(G)
     dist=[-1]*n
     conflitos=[]
